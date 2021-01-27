@@ -7,10 +7,10 @@ trigger:
 - main
 
 variables:
-  azureSubscription: 'devops-test-serviceconnection'
-  webAppName: 'devops-test-software2'
+  azureSubscription: 'endpoint-devops-test-2'
+  webAppName: 'devops-testi-software2'
+  environmentName: 'plan-devops-2'
   vmImageName: 'ubuntu-latest'
-  environmentName: 'devops-test-software2'
   rootFolder: $(System.DefaultWorkingDirectory)
 
 stages:
@@ -32,10 +32,6 @@ stages:
         php -version
       workingDirectory: $(rootFolder)
       displayName: 'Use PHP version $(phpVersion)'
-    
-    - script: composer install --no-interaction --prefer-dist
-      workingDirectory: $(rootFolder)
-      displayName: 'Composer install'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
